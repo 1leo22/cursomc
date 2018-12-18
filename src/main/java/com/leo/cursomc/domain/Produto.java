@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 
 import org.hibernate.annotations.ManyToAny;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Produto implements Serializable{
 	
@@ -25,7 +27,7 @@ public class Produto implements Serializable{
 	private String nome;
 	private double preco;
 	
-	
+	@JsonBackReference
 	@ManyToMany//anotação para criar a tabela do relacionamento muito para muitos
 	@JoinTable( name = "PRODUTO_CATEGORIA",// nome da tabela
 		joinColumns = @JoinColumn(name = "produto_id"), //nome do id
